@@ -1,17 +1,22 @@
 import express, { NextFunction, Request, Response } from "express";
 import dotenv from "dotenv";
 import path from 'path';
-import indexRouter from "./routes/index";
+import {fileURLToPath} from 'url';
+import indexRouter from "./routes/index.js";
+import openaiExample from "./routes/openai-example.js";
 import createError from "http-errors";
 
 const app = express();
 dotenv.config(); //Reads .env file and makes it accessible via process.env
 
+//const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/', indexRouter);
+app.use('/openai-example', openaiExample);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

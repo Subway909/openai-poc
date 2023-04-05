@@ -1,10 +1,10 @@
 import express from "express";
+import { run } from "../controllers/openai-example.js";
 
 let router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let msg: string = 'hi';
-  res.send(msg);
+  res.send(run());
 });
 
 export default router;

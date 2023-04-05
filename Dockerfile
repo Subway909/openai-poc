@@ -1,6 +1,9 @@
 # Installs Node.js image
 FROM node:18.15.0-alpine3.17
 
+# Needed for monitoring any file changes
+RUN npm install -g nodemon ts-node
+
 # sets the working directory for any RUN, CMD, COPY command
 # all files we put in the Docker container running the server will be in /usr/src/app (e.g. /usr/src/app/package.json)
 WORKDIR /usr/src/app
@@ -21,4 +24,4 @@ RUN chown -R $(whoami) /usr/local/bin
 RUN npm install
 
 # Runs the dev npm script to build & start the server
-CMD npm run dev
+#CMD npm run dev

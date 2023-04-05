@@ -4,8 +4,11 @@ services:
     container_name: openai-poc
     restart: always
     build: .
+    command: npm run debug
+    #command: nodemon --inspect=0.0.0.0:9229 ./dist/src/app.js
     ports:
       - ${PORT}:${PORT}
+      - "9229:9229"
     depends_on:
       - db
     volumes:

@@ -3,8 +3,19 @@ import { run } from "../controllers/openai-example.js";
 
 let router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.send(run());
+router.get('/', async function(req, res, next) {
+
+  let result = await run();
+
+  if(result) {
+    res.status(200);
+    res.send(result);
+  }
+  else {
+    res.status(400);
+    res.send('error');
+  }
 });
 
 export default router;
+

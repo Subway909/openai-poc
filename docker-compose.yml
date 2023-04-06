@@ -4,8 +4,7 @@ services:
     container_name: openai-poc
     restart: always
     build: .
-    command: npm run debug
-    #command: nodemon --inspect=0.0.0.0:9229 ./dist/src/app.js
+    #command: npm run debug
     ports:
       - ${PORT}:${PORT}
       - "9229:9229"
@@ -19,7 +18,7 @@ services:
     restart: always
     image: ankane/pgvector
     ports:
-      - '5433:${DB_PORT}'
+      - "5433:${DB_PORT}"
     volumes:
       - data:/data/db
     environment:

@@ -9,7 +9,8 @@
     "dev": "nodemon -L -e ts --exec \"npm run build && npm start\" ",
     "build": "tsc -p ./tsconfig.json && npm copy-files",
     "debug": "npm run copy-files && tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 dist/app.js\" --onFailure \"echo WHOOPS! Server compilation failed\"",
-    "copy-files": "cp -r ./src/public/ ./dist/"
+    "copy-files": "cp -r -f ./src/public/ ./dist/",
+    "db-test": "npx ts-node --esm ./src/dbtest.ts"
   },
   "keywords": [],
   "author": "",

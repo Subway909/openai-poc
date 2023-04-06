@@ -24,4 +24,4 @@ RUN chown -R $(whoami) /usr/local/bin
 RUN npm install
 
 # Runs the dev npm script to build & start the server
-#CMD npm run dev
+CMD npm run debug

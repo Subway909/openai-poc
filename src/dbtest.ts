@@ -1,4 +1,11 @@
 import { PrismaClient } from '@prisma/client'
+import dotenv from "dotenv";
+
+dotenv.config();
+
+let dbInfo = process.env.DATABASE_URL;
+
+console.log(dbInfo);
 
 const prisma = new PrismaClient()
 

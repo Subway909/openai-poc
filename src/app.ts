@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import path from 'path';
 import {fileURLToPath} from 'url';
 import indexRouter from "./routes/index.js";
-import openaiExample from "./routes/openai-example.js";
+import dbtestRouter from "./routes/dbtestRouter.js";
 import createError from "http-errors";
 
 const app = express();
@@ -19,7 +19,7 @@ const staticDir = path.join(__dirname, 'public');
 app.use(express.static(staticDir))
 
 app.use('/', indexRouter);
-app.use('/openai-example', openaiExample);
+app.use('/dbtest', dbtestRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -2,7 +2,7 @@
 FROM node:18.15.0-alpine3.17
 
 # Needed for monitoring any file changes
-RUN npm install -g nodemon ts-node
+RUN npm install -g ts-node
 
 # sets the working directory for any RUN, CMD, COPY command
 # all files we put in the Docker container running the server will be in /usr/src/app (e.g. /usr/src/app/package.json)

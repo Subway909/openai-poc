@@ -1,5 +1,5 @@
 import express from "express";
-import { run } from "../controllers/openai-example.ts.old";
+import { run } from '../controllers/OpenaiTestController.js';
 
 let router = express.Router();
 

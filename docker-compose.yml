@@ -4,7 +4,6 @@ services:
     container_name: openai-poc
     restart: always
     build: .
-    #command: npm run debug
     ports:
       - ${PORT}:${PORT}
       - "9229:9229"
@@ -20,7 +19,7 @@ services:
     ports:
       - "5433:${DB_PORT}"
     volumes:
-      - data:/data/db
+      - postgres_data:/data/db
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
@@ -43,5 +42,6 @@ services:
       - db:pgsql-server
 
 volumes:
+  postgres_data: {}
+  dumps: {}
   pgadmin: {}
-  data: {}

@@ -10,7 +10,8 @@
     "build": "tsc -p ./tsconfig.json && npm copy-files",
     "debug": "npm run copy-files && tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 dist/app.js\" --onFailure \"echo WHOOPS! Server compilation failed\"",
     "copy-files": "cp -r -f ./src/public/ ./dist/",
-    "db-test": "npx ts-node --esm ./src/dbtest.ts"
+    "db-test": "npx ts-node --esm ./src/dbtest.ts",
+    "migrate": "node-pg-migrate"
   },
   "keywords": [],
   "author": "",
@@ -32,6 +33,7 @@
     "express": "^4.18.2",
     "http-errors": "^2.0.0",
     "langchain": "^0.0.48",
+    "node-pg-migrate": "^6.2.2",
     "pg": "^8.10.0",
     "tsc-watch": "^6.0.0"
   }

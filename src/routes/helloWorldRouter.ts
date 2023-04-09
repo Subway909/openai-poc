@@ -1,10 +1,11 @@
 import express from "express";
 
-let router = express.Router();
+const router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let msg: string = 'hi';
+  const msg: string = 'Hello World!';
   res.send(msg);
 });
+
 
 export default router;

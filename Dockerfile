@@ -8,6 +8,9 @@ RUN npm install -g ts-node
 # all files we put in the Docker container running the server will be in /usr/src/app (e.g. /usr/src/app/package.json)
 WORKDIR /usr/src/app
 
+# clear dist folder
+RUN rm -rf dist
+
 # Copies package.json, package-lock.json, tsconfig.json, .env to the root of WORKDIR
 COPY ["package.json", "package-lock.json", "tsconfig.json", ".env", "./"]
 

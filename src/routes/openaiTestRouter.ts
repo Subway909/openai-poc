@@ -1,11 +1,11 @@
 import express from "express";
 import { run } from '../controllers/OpenaiTestController.js';
 
-let router = express.Router();
+const router = express.Router();
 
 router.get('/', async function(req, res, next) {
 
-  let result = await run();
+  const result = await run();
 
   if(result) {
     res.status(200);

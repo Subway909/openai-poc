@@ -23,6 +23,13 @@ module.exports = {
             {
                 "ts": "never"
             }
+        ],
+        "@typescript-eslint/quotes": [
+            "error",
+            "single",
+            {
+              "allowTemplateLiterals": true
+            }
         ]
     }
 }

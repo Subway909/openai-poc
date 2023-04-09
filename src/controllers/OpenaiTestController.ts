@@ -14,7 +14,10 @@ export const run = async () => {
   const fileName = folderPath + '/data.txt';
   const fileContent = readFileSync(fileName, 'utf8');
 
-  const res = await embeddings.embedQuery(fileContent);
+  // OpenAI recommends replacing newlines with spaces for best results
+  const input = fileContent.replace(/\n/g, ' ')
+
+  const res = await embeddings.embedQuery(input);
 
   const document = {
     title: 'listerine',

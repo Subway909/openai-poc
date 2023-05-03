@@ -8,19 +8,24 @@ exports.up = pgm => {
 
   pgm.createTable('documents', {
     id: 'id',
-    createdAt: {
+    created_at: {
       type: 'timestamp',
       notNull: true,
       default: pgm.func('current_timestamp'),
     },
-    updatedAt: { type: 'timestamp' },
-    title: { type: 'text', notNull: true },
-    content: { type: 'text' },
-    embedding: { type: 'vector(1536)' },
+    updated_at: { type: 'timestamp' },
+    content_text: { type: 'text' },
+    format: { type: 'text', check: "format in ('text', 'pdf', null)"},
+    page: {type: 'text'},
+    url: {type: 'text' },
+    file_name: { type: 'text' },
+    original_file_name: { type: 'text' },
+    batch: { type: 'text' },
+    embeddings: { type: 'vector(1536)' },
   });
 
   pgm.sql(`CREATE INDEX ON documents
-    using ivfflat (embedding vector_cosine_ops)
+    using ivfflat (embeddings vector_cosine_ops)
     with (lists = 100);`);
 };
 

@@ -21,10 +21,10 @@ exports.up = pgm => {
     SELECT
       id,
       content,
-      1 - (documents.embedding <=> query_embedding) AS similarity
+      1 - (documents.embeddings <=> query_embedding) AS similarity
     FROM DOCUMENTS
-    WHERE 1 - (documents.embedding <=> query_embedding) > similarity_threshold
-    ORDER BY documents.embedding <=> query_embedding
+    WHERE 1 - (documents.embeddings <=> query_embedding) > similarity_threshold
+    ORDER BY documents.embeddings <=> query_embedding
     LIMIT match_count;
   END;
   $$;`);

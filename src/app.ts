@@ -6,6 +6,7 @@ import indexRouter from "./routes/helloWorldRouter.js";
 import dbtestRouter from "./routes/dbtestRouter.js";
 import openaiTestRouter from "./routes/openaiTestRouter.js";
 import uploadContentRouter from "./routes/uploadContentRouter.js";
+import uploadPdfRouter from "./routes/uploadPdfRouter.js"
 
 const app = express();
 dotenv.config(); //Reads .env file and makes it accessible via process.env
@@ -20,6 +21,7 @@ app.use('/', indexRouter);
 app.use('/dbtest', dbtestRouter);
 app.use('/openaiTest', openaiTestRouter);
 app.use('/upload', uploadContentRouter);
+app.use('/pdf', uploadPdfRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -29,5 +31,6 @@ app.use(function(req, res, next) {
 app.listen(process.env.PORT, () => {
   console.log(`Server is running at ${process.env.PORT}`);
 });
+
 
 export default app;

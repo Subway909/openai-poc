@@ -5,26 +5,29 @@ exports.shorthands = undefined;
 exports.up = pgm => {
   pgm.sql(`CREATE OR REPLACE FUNCTION match_documents (
     query_embedding vector(1536),
-    similarity_threshold float,
-    match_count int
+    match_threshold float,
+    match_count int,
+    doc_name text
   )
   RETURNS TABLE (
-    id bigint,
-    content text,
-    similarity float
+    id int,
+    similarity float,
+    content_text text,
+    seq int
   )
   LANGUAGE plpgsql
   AS $$
-  #variable_conflict use_variable
   BEGIN
     RETURN query
     SELECT
-      id,
-      content,
-      1 - (documents.embeddings <=> query_embedding) AS similarity
+      documents.id,
+      1 - (documents.embeddings <=> query_embedding) AS similarity,
+      documents.content_text,
+      documents.seq
     FROM DOCUMENTS
-    WHERE 1 - (documents.embeddings <=> query_embedding) > similarity_threshold
-    ORDER BY documents.embeddings <=> query_embedding
+    WHERE 1 - (documents.embeddings <=> query_embedding) > match_threshold
+    AND documents.document_name = doc_name
+    ORDER BY similarity desc
     LIMIT match_count;
   END;
   $$;`);

@@ -1,0 +1,6 @@
+//create a new migration
+npm run migrate create posts lead
+
+//migrate up or down
+npm run migrate up
+npm run migrate down

@@ -2,13 +2,13 @@
   "name": "openai-poc",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/app.js",
+  "main": "./dist/server.js",
   "type": "module",
   "scripts": {
-    "start": "node ./dist/app.js",
+    "start": "node ./dist/server.js",
     "dev": "nodemon -L -e ts --exec \"npm run build && npm start\" ",
     "build": "tsc -p ./tsconfig.json && npm copy-files",
-    "debug": "npm run copy-files && tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 dist/src/app.js\" --onFailure \"echo WHOOPS! Server compilation failed\"",
+    "debug": "npm run copy-files && tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 dist/src/server.js\" --onFailure \"echo WHOOPS! Server compilation failed\"",
     "copy-files": "cp -r -f ./src/public/ ./dist/",
     "db-test": "npx ts-node --esm ./src/dbtest.ts",
     "migrate": "node-pg-migrate"

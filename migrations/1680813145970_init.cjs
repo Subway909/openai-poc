@@ -16,11 +16,13 @@ exports.up = pgm => {
     updated_at: { type: 'timestamp' },
     content_text: { type: 'text' },
     format: { type: 'text', check: "format in ('text', 'pdf', null)"},
+    document_name: { type: 'text' },
     page: {type: 'text'},
     url: {type: 'text' },
     file_name: { type: 'text' },
     original_file_name: { type: 'text' },
     batch: { type: 'text' },
+    seq: { type: 'integer' },
     embeddings: { type: 'vector(1536)' },
   });
 

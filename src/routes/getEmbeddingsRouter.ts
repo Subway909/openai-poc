@@ -1,18 +1,12 @@
-import express from "express";
-import { OpenAIEmbeddings } from 'langchain/embeddings';
+import express from 'express';
+import { getEmbeddings } from '../controllers/EmbeddingsController.js';
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const prompt = req.body.prompt;
-  let embeddings = new OpenAIEmbeddings();
-  let embeddingsResult = await embeddings.embedQuery(prompt);
+  const embeddings = await getEmbeddings(req.body.prompt);
 
-  let embeddingsAsString: string | null = embeddingsResult ? embeddingsResult.join(",") : null;
-    embeddingsAsString = '[' + embeddingsAsString + ']';
-
-  return res.status(200).send(embeddingsAsString);
+  return res.status(200).send(embeddings);
 });
 
 export default router;
-

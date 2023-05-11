@@ -1,9 +1,9 @@
-import express from "express";
+import express from 'express';
 
 const router = express.Router();
 
-router.get('/', function(req, res, next) {
-  const msg: string = 'Hello World!';
+router.get('/', function(req, res) {
+  const msg = 'Hello World!';
   res.send(msg);
 });
 

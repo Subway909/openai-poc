@@ -1,9 +1,9 @@
-import express, { NextFunction, Request, Response } from "express";
-import dotenv from "dotenv";
+import express from 'express';
+import dotenv from 'dotenv';
 import path from 'path';
-import createError from "http-errors";
-import indexRouter from "./routes/helloWorldRouter.js";
-import uploadPdfRouter from "./routes/uploadPdfRouter.js"
+import createError from 'http-errors';
+import indexRouter from './routes/helloWorldRouter.js';
+import uploadPdfRouter from './routes/uploadPdfRouter.js'
 import getEmbeddingsRouter from './routes/getEmbeddingsRouter.js';
 import listDocumentsRouter from './routes/listDocumentsRouter.js';
 

@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 import { DocumentsControllerHelper } from '../controllers/DocumentsController.js';
 
 const router = express.Router();

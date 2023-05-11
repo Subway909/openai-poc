@@ -26,8 +26,7 @@ export class DocumentsController {
   }
 
   async saveEmbedding(): Promise<QueryResult<any>> {
-    let embeddingsAsString: string | null = this.props.embeddings ? this.props.embeddings.join(",") : null;
-    embeddingsAsString = '[' + embeddingsAsString + ']';
+    const embeddingsAsString = vectorToString(this.props.embeddings);
 
     const query = `INSERT INTO documents (
                       content_text,
@@ -71,4 +70,12 @@ export class DocumentsControllerHelper {
 
     return docs;
   }
+}
+
+export function vectorToString(vector: number[] | null): string {
+  let embeddingsAsString: string | null = vector ? vector.join(',') : null;
+
+  embeddingsAsString = '[' + embeddingsAsString + ']';
+
+  return embeddingsAsString;
 }

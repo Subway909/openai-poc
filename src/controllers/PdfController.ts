@@ -1,6 +1,6 @@
 import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
 import { randomUUID } from 'crypto';
-import { CharacterTextSplitter } from "langchain/text_splitter";
+import { CharacterTextSplitter } from 'langchain/text_splitter';
 import { DocumentsController, DocumentProps, DocumentsControllerHelper } from '../controllers/DocumentsController.js';
 import { OpenAIEmbeddings } from 'langchain/embeddings';
 import path from 'path';
@@ -30,13 +30,13 @@ async function pdfController(filename: string, original_file_name: string, name:
     let order = 0;
 
     for (const input of docs) {
-      let page = input.metadata.loc.pageNumber;
+      const page = input.metadata.loc.pageNumber;
       let text = input.pageContent;
 
       text = text.replace(/\n/g, ' ');
 
       const splitter = new CharacterTextSplitter({
-        separator: " ",
+        separator: ' ',
         chunkSize: 1000,
         chunkOverlap: 200,
       });
@@ -47,7 +47,7 @@ async function pdfController(filename: string, original_file_name: string, name:
       for (const doc of output) {
         order++;
 
-        let props: DocumentProps = {
+        const props: DocumentProps = {
           id: null,
           updated_at: null,
           content_text: doc.pageContent,
@@ -62,7 +62,7 @@ async function pdfController(filename: string, original_file_name: string, name:
           embeddings: null,
         }
 
-        let embeddings = new OpenAIEmbeddings();
+        const embeddings = new OpenAIEmbeddings();
 
         const embeddingsResult = await embeddings.embedQuery(doc.pageContent);
 
@@ -70,7 +70,7 @@ async function pdfController(filename: string, original_file_name: string, name:
 
         console.log('----page: ' + page);
 
-        let newDocument = new DocumentsController(props);
+        const newDocument = new DocumentsController(props);
 
         newDocument.saveEmbedding();
 

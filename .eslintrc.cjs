@@ -14,16 +14,9 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["@typescript-eslint", "eslint-plugin-prettier"],
+    "plugins": ["@typescript-eslint"],
     "rules": {
-        "prettier/prettier": "error",
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "ts": "never"
-            }
-        ],
+        "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/quotes": [
             "error",
             "single",

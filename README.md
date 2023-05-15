@@ -1,12 +1,28 @@
-# openai poc
+# OpenAI POC
 
-Create .env from .env.example
+## Setup
 
-run docker-compose up -d
+Clone this repo, then go to the API folder and create a `.env` file from `.env.example.`
+Add your OpenAI API key
+![.env file](_readme/readme-01.png)
 
-api runs on localhost:5000
+Start docker by running:
 
-## migrations
+`docker-compose up`
+![docker initializing](_readme/readme-02.png)
 
-npm run migrate
-npm run migrate create migration name
+The API runs on `localhost:5000`
+![postman](_readme/readme-03.png)
+
+There is a collection in this repo, you can use it to consume the API endpoints.
+
+## Migrations
+The database migrations should run automatically when starting Docker.
+
+* You can run manualy with this command `npm run migrate` inside the Docker container
+* Run `npm run migrate create migration name` to create a new migration file.
+
+## pgAdmin
+pgAdmin is included, you can access it via: `http://localhost:8080/`
+
+The user credentials are provided on the `.env` file.

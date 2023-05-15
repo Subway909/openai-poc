@@ -15,6 +15,12 @@ export class PromptController {
   }
 
   async run(queryText: string, document_name: string) {
+    const openaiKey = process.env.OPENAI_API_KEY;
+
+    if (openaiKey === '' || openaiKey === undefined) {
+      throw new Error('OPENAI_API_KEY environment variable not set');
+    }
+
     //get embedding vectors
     const promptEmbeddings = await this.getEmbeddings(queryText);
 
@@ -28,7 +34,7 @@ export class PromptController {
     let contextText = '';
 
     const configuration = new Configuration({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: openaiKey,
     });
     const openai = new OpenAIApi(configuration);
 

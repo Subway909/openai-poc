@@ -24,67 +24,6 @@
 			"response": []
 		},
 		{
-			"name": "/dbtest",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api_url}}/dbtest",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"dbtest"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/openai-example",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api_url}}/openaiTest",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"openaiTest"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "/upload",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": "/home/henzogomes/Documents/embeddings/sonic.txt"
-						}
-					]
-				},
-				"url": {
-					"raw": "{{api_url}}/upload",
-					"host": [
-						"{{api_url}}"
-					],
-					"path": [
-						"upload"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "/upload PDF",
 			"request": {
 				"method": "POST",

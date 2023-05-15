@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "76f31e2a-917a-4dc6-a408-a9e7b9f3379d",
+		"name": "OpenAI POC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22881964"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/dbtest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/dbtest",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"dbtest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/openai-example",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/openaiTest",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"openaiTest"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/henzogomes/Documents/embeddings/sonic.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/upload",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/upload PDF",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/henzogomes/Documents/embeddings/final.pdf"
+						},
+						{
+							"key": "name",
+							"value": "jnj q1 2023 press release - example 3",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/pdf",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"pdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/embeddings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "prompt",
+							"value": "earnings",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/embeddings",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"embeddings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/prompt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "prompt",
+							"value": "What was the sales growth in the first quarter?",
+							"type": "text"
+						},
+						{
+							"key": "document_name",
+							"value": "jnj q1 2023 press release",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/prompt",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"prompt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/list documents",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "prompt",
+							"value": "What was the sales growth in the first quarter?",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/list",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_url",
+			"value": "localhost:5000",
+			"type": "string"
+		}
+	]
+}

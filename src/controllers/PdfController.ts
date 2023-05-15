@@ -2,7 +2,7 @@ import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
 import { randomUUID } from 'crypto';
 import { CharacterTextSplitter } from 'langchain/text_splitter';
 import { DocumentsController, DocumentProps, DocumentsControllerHelper } from '../controllers/DocumentsController.js';
-import { OpenAIEmbeddings } from 'langchain/embeddings';
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 import path from 'path';
 
 async function pdfController(filename: string, original_file_name: string, name: string) {

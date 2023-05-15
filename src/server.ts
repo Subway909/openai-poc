@@ -6,6 +6,7 @@ import indexRouter from './routes/helloWorldRouter.js';
 import uploadPdfRouter from './routes/uploadPdfRouter.js'
 import getEmbeddingsRouter from './routes/getEmbeddingsRouter.js';
 import listDocumentsRouter from './routes/listDocumentsRouter.js';
+import promptRouter from './routes/promptRouter.js';
 
 const app = express();
 dotenv.config(); //Reads .env file and makes it accessible via process.env
@@ -20,6 +21,7 @@ app.use('/', indexRouter);
 app.use('/pdf', uploadPdfRouter);
 app.use('/embeddings', getEmbeddingsRouter);
 app.use('/list', listDocumentsRouter);
+app.use('/prompt', promptRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

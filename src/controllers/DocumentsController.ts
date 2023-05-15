@@ -3,6 +3,9 @@ import client from './PgController.js';
 
 export type formatTypes = 'pdf'|'txt'|null;
 
+const SIMILARITY_THRESHOLD = 0.78;
+const MATCH_COUNT = 10;
+
 export interface DocumentProps {
   id: number | null;
   updated_at: Date | null;
@@ -67,6 +70,19 @@ export class DocumentsControllerHelper {
     const result = await client.query(query);
 
     const docs = result.rows.map(x => x.document_name);
+
+    return docs;
+  }
+
+  async getMatchingDocuments(embeddings: string, document_name: string): Promise<Array<any>> {
+    const query = {
+      text: `SELECT content_text from match_documents($1, $2, $3, $4);`,
+      rowMode: 'array'
+    } ;
+
+    const result = await client.query(query, [embeddings, SIMILARITY_THRESHOLD, MATCH_COUNT, document_name])
+
+    const docs = result.rows;
 
     return docs;
   }

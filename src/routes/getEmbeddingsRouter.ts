@@ -1,10 +1,10 @@
 import express from 'express';
-import { getEmbeddings } from '../controllers/EmbeddingsController.js';
+import { _getEmbeddings } from '../controllers/EmbeddingsController.js';
 
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-  const embeddings = await getEmbeddings(req.body.prompt);
+  const embeddings = await _getEmbeddings(req.body.prompt);
 
   return res.status(200).send(embeddings);
 });

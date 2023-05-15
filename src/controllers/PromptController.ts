@@ -39,8 +39,8 @@ export class PromptController {
       const encoded = encode(content);
       tokenCount += encoded.length;
 
-      // Limit context to max 1500 tokens (configurable)
-      if (tokenCount > 1500) {
+      // Limit context to max 2500 tokens (configurable)
+      if (tokenCount > 2500) {
         break;
       }
 
@@ -70,7 +70,6 @@ export class PromptController {
     });
 
     const {
-      id,
       choices: [{ text }],
     } = completionResponse.data;
 

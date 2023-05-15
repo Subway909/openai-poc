@@ -78,7 +78,7 @@ export class DocumentsControllerHelper {
     const query = {
       text: `SELECT content_text from match_documents($1, $2, $3, $4);`,
       rowMode: 'array'
-    } ;
+    };
 
     const result = await client.query(query, [embeddings, SIMILARITY_THRESHOLD, MATCH_COUNT, document_name])
 

@@ -1,5 +1,5 @@
-OK - take the logic out of the pdf rourter and put it in a controller
+OK - take the logic out of the pdf router and put it in a controller
 OK - /list documents router
 OK - check if there is a document with the same name before uploading PDF
-create route to send a prompt
-create a controller to build the prompt with data from the DB
+OK - create route to send a prompt
+OK - create a controller to build the prompt with data from the DB

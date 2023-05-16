@@ -7,7 +7,6 @@ import path from 'path';
 
 async function pdfController(filename: string, original_file_name: string, name: string) {
   //check if a document with the same name already exists
-
   const _document = new DocumentsControllerHelper();
 
   const exists = await _document.checkDocumentNameExists(name);

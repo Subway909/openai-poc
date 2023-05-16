@@ -38,7 +38,7 @@
 						},
 						{
 							"key": "name",
-							"value": "jnj q1 2023 press release - example 3",
+							"value": "jnj q1 2023 press release - example 4",
 							"type": "text"
 						}
 					]
@@ -56,6 +56,43 @@
 			"response": []
 		},
 		{
+			"name": "/upload JSON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "you can send multiple files",
+							"type": "file",
+							"src": [
+								"/home/henzogomes/Documents/embeddings/json/about.json",
+								"/home/henzogomes/Documents/embeddings/json/attack-plaque.json"
+							]
+						},
+						{
+							"key": "name",
+							"value": "listerine new 1",
+							"description": "the name of the document (will be required when prompting)",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api_url}}/json",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "/embeddings",
 			"request": {
 				"method": "POST",
@@ -65,7 +102,7 @@
 					"urlencoded": [
 						{
 							"key": "prompt",
-							"value": "earnings",
+							"value": "What was the sales growth in the first quarter?",
 							"type": "text"
 						}
 					]
@@ -99,6 +136,18 @@
 							"key": "document_name",
 							"value": "jnj q1 2023 press release",
 							"type": "text"
+						},
+						{
+							"key": "prompt",
+							"value": "what do you know about listerine?",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "document_name",
+							"value": "listerine",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},

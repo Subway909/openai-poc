@@ -63,17 +63,13 @@ async function pdfController(filename: string, original_file_name: string, name:
         }
 
         const embeddings = new OpenAIEmbeddings();
-
         const embeddingsResult = await embeddings.embedQuery(doc.pageContent);
-
         props.embeddings = embeddingsResult;
 
         console.log('----page: ' + page);
 
         const newDocument = new DocumentsController(props);
-
         newDocument.saveEmbedding();
-
         embeddingsPromises.push(props);
       }
     }

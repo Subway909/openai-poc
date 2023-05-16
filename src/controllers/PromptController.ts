@@ -71,7 +71,7 @@ export class PromptController {
     const completionResponse = await openai.createCompletion({
       model: 'text-davinci-003',
       prompt,
-      max_tokens: 512, // Choose the max allowed tokens in completion
+      max_tokens: 1024, // Choose the max allowed tokens in completion
       temperature: .5, // Set to 0 for deterministic results
     });
 

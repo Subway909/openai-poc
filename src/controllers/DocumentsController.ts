@@ -1,7 +1,7 @@
 import { QueryResult } from 'pg';
 import client from './PgController.js';
 
-export type formatTypes = 'pdf'|'txt'|null;
+export type formatTypes = 'pdf'|'json'|'txt'|null;
 
 const SIMILARITY_THRESHOLD = 0.78;
 const MATCH_COUNT = 10;

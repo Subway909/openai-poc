@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node ./dist/src/server.js",
-    "build": "tsc -p ./tsconfig.json && npm copy-files",
+    "dev": "nodemon -L -e ts --exec \"npm run build && npm start\" ",
+    "build": "tsc -p ./tsconfig.json && npm run copy-files",
     "debug": "npm run copy-files && tsc-watch --onSuccess \"node --inspect=0.0.0.0:9229 dist/src/server.js\" --onFailure \"echo WHOOPS! Server compilation failed\"",
     "copy-files": "cp -r -f ./src/public/ ./dist/",
     "migrate": "node-pg-migrate"

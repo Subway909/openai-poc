@@ -74,7 +74,7 @@
 						},
 						{
 							"key": "name",
-							"value": "listerine new 1",
+							"value": "brand new 1",
 							"description": "the name of the document (will be required when prompting)",
 							"type": "text"
 						}
@@ -139,13 +139,13 @@
 						},
 						{
 							"key": "prompt",
-							"value": "what do you know about listerine?",
+							"value": "what do you know about brand?",
 							"type": "text",
 							"disabled": true
 						},
 						{
 							"key": "document_name",
-							"value": "listerine",
+							"value": "brand",
 							"type": "text",
 							"disabled": true
 						}
